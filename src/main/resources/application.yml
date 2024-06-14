@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: SpringSecurityWithKeycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/applicationSpring
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/applicationSpring
+            userNameAttribute: preferred_username
+        registration:
+          keycloak:
+            clientId: securityApp
+            clientSecret: H9xQFLluF9aPkRkwMTZcaKMfFGjO10Ln
+            scope: openid
+
