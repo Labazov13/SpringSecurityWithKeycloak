@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  keycloak:
+  keycloak_web:
     build:
       context: .
       dockerfile: keycloak_dockerfile/Dockerfile
@@ -19,3 +19,5 @@ services:
       dockerfile: app_dockerfile/Dockerfile
     ports:
       - '8081:8081'
+    depends_on:
+      - 'keycloak_web'
